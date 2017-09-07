@@ -11,11 +11,13 @@ public class KaijuTest {
 
     Titan titan;
     Freiza freiza;
+    Xwing xwing;
 
     @Before
     public void before(){
         titan = new Titan("Mothra", 500, 50);
         freiza = new Freiza("Freiza", 1000, 100 );
+        xwing = new Xwing("Xwing", 100, 75);
     }
 
     @Test
@@ -42,4 +44,15 @@ public class KaijuTest {
         assertEquals("I will defeat you, Kakarot!", freiza.roar());
     }
 
+    @Test
+    public void testAttackDoesDamage(){
+        freiza.damage(xwing.getAttackVal());
+        assertEquals(925, freiza.getHealthVal());
+    }
+
+    @Test
+    public void testKaijuVsKaiju(){
+        freiza.damage(titan.getAttackVal());
+        assertEquals(950, freiza.getHealthVal());
+    }
 }

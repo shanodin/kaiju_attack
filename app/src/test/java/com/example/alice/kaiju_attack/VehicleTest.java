@@ -11,11 +11,13 @@ public class VehicleTest {
 
     Xwing xwing;
     Brigantine brigantine;
+    Freiza freiza;
 
     @Before
     public void before(){
         xwing = new Xwing("Spaceship", 100, 100);
         brigantine = new Brigantine("Boat", 50, 25);
+        freiza = new Freiza("Freiza", 1000, 75 );
     }
 
     @Test
@@ -34,5 +36,11 @@ public class VehicleTest {
     public void testVehicleArmour(){
         assertEquals(100, xwing.getArmourVal());
         assertEquals(50, brigantine.getArmourVal());
+    }
+
+    @Test
+    public void testAttackDoesDamage(){
+        xwing.damage(freiza.getAttackVal());
+        assertEquals(25, xwing.getArmourVal());
     }
 }

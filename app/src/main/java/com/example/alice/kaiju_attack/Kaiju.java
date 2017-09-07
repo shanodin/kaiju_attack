@@ -4,7 +4,8 @@ package com.example.alice.kaiju_attack;
  * Created by alice on 06/09/2017.
  */
 
-public abstract class Kaiju {
+public abstract class Kaiju
+        implements Damageable  {
     public String name;
     public int healthVal;
     public int attackVal;
@@ -27,6 +28,9 @@ public abstract class Kaiju {
         return this.healthVal;
     }
 
+    public void damage(int damageTaken){
+        this.healthVal -= damageTaken;
+    }
 
 }
 
